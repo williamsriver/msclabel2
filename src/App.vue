@@ -1,6 +1,6 @@
 <template>
   <div id="app" style="margin: 0">
-    <mainscreen/>
+    <router-view/>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Mainscreen from "./components/mainscreen";
 export default {
   name: 'App',
-  components: {Mainscreen}
+  components: {Mainscreen},
 }
 </script>
 

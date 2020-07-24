@@ -4,14 +4,18 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuetify from "vuetify";
-import animated from 'animate.css'
+import VueBus from 'vue-bus';
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/dist/vuetify.min.css'
-import '@fortawesome/fontawesome-free/css/all.css'
+import axios from 'axios'
+
 Vue.config.productionTip = false
-Vue.use(animated);
 Vue.use(router)
 Vue.use(Vuetify)
+Vue.use(VueBus)
+Vue.prototype.$axios = axios;
+Vue.prototype.bus = new Vue();
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -19,7 +23,9 @@ new Vue({
   components: { App },
   vuetify:new Vuetify(),
   template: '<App/>',
+  VueBus,
   icons: {
     iconfont: 'mdi', // default - only for display purposes
   },
+  render: h=>h(App),//加载原则
 })
